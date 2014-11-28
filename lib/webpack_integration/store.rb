@@ -18,7 +18,7 @@ module WebpackIntegration
     end
 
     def self.assets_keys
-      @assets_keys ||= assets_manifest.keys
+      @assets_keys ||= assets_manifest.keys.sort!
     end
 
     def self.assets_manifest
