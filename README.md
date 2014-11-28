@@ -43,6 +43,10 @@ Or anywhere in code by:
     end
 
 
+## Development
+    # run tests
+    $ sh/test
+
 ## Todo
   - make reloading more efficient, maybe in a background process.
 
