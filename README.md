@@ -32,10 +32,11 @@ Or anywhere in code by:
 
 ## Installation
 
-  Add this line to your application's Gemfile:
-    gem 'webpack_integration'
-    $ bundle
+      # add to your application's Gemfile:
+      gem 'webpack_integration'
 
+      # run
+      $ bundle
 
 ## Usage
 
