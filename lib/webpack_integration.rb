@@ -21,7 +21,7 @@ module WebpackIntergration
   end
 
   def self.fuzzy_file_for(file_pattern)
-    WebpackIntergration::Store.fuzzy_file_for(filename)
+    WebpackIntergration::Store.fuzzy_file_for(file_pattern)
   end
 
   # should be called in development mode in after-request filter
