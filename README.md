@@ -7,6 +7,7 @@ A small gem for dead simple integration with any static assets compiler.
 It allows you to reference any file in a output folder for a compiler (webpack / gulp / grunt) that may have a hash digest in the file name by simple non-changeable filename part.
 
 Example:
+
     public/webpack/reports_view-bundle-ab530a1.js
     public/webpack/reports_view_styles-bundle-b94f982.js
     public/webpack/common-2a55c40.js
