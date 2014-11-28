@@ -1,26 +1,49 @@
 # WebpackIntegration
 
-TODO: Write a gem description
+A small gem for dead simple integration with any static assets compiler.
+It allows you to reference any file in a output folder for a compiler (webpack / gulp / grunt) that may have a hash digest in the file name by simple non-change-able filename part.
+
+Example:
+    public/webpack/reports_view-bundle-ab530a1.js
+    public/webpack/reports_view_styles-bundle-b94f982.js
+    public/webpack/common-2a55c40.js
+    public/webpack/invoices_view-bundle-e881f50.js
+    public/webpack/invoices_view_styles-bundle-0ebe2ec.js
+
+
+Refer to files in Rails views by:
+
+    <%= javascript_include_tag  webpack_file('reports_view_bundle') %>
+    <%= javascript_include_tag  webpack_file('reports_view_styles-bundle') %>
+
+
+Or anywhere in code by:
+    # fuzzy, forgiving matching
+    WebpackIntergration.fuzzy_file_for(filename)
+
+    # exact file name without the digest
+    WebpackIntergration.file_for(filename)
+
+
+It will list all files in a dedicated public folder and create a hash for you to
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'webpack_integration'
-```
-
-And then execute:
-
+  Add this line to your application's Gemfile:
+    gem 'webpack_integration'
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install webpack_integration
 
 ## Usage
+    # in config/initializers/webpack_integration.rb
+    WebpackIntegration.configure do |config|
+      config.folder_in_public      = 'webpack'
+      config.reset_on_each_request = Rails.env.development?
+    end
 
-TODO: Write usage instructions here
+
+## Todo
+  - make reloading more efficient, maybe in a background process.
 
 ## Contributing
 
