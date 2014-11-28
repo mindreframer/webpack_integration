@@ -1,44 +1,31 @@
 require "webpack_integration/version"
+require "webpack_integration/configuration"
+require "webpack_integration/assets"
+require "webpack_integration/store"
+require "webpack_integration/railtie" if defined?(Rails)
+
 
 module WebpackIntergration
+  def self.configuration
+    @configuration ||= WebpackIntergration::Configuration.new
+  end
+
+  def self.configure
+    yield(configuration)
+  end
+
   # @example
   #   WebpackIntergration.file_for('clients.css')
   def self.file_for(filename)
-    assets_manifest.fetch(filename) # will raise on missing assets!
+    WebpackIntergration::Store.file_for(filename)
   end
 
-  # @example
-  #   WebpackIntergration.fuzzy_file_for('client.png')
   def self.fuzzy_file_for(file_pattern)
-    alternatives = assets_keys.grep(Regexp.new(file_pattern))
-    raise "TOO MANY MATCHES for #{file_pattern}" if alternatives.size > 1
-    file_for(alternatives.first)
-  end
-
-  def self.assets_keys
-    @assets_keys ||= assets_manifest.keys
-  end
-
-  # WebpackIntergration.assets_manifest
-  def self.assets_manifest
-    @assets_manifest ||= generate_assets_manifest
-  end
-
-  def self.generate_assets_manifest
-    res = {}
-    Dir['public/webpack/**/**/**'].each do |f|
-      next if File.directory?(f)
-      key      = f.gsub('public/webpack/', '')
-      key      = key.gsub(/-[a-f\d]*(\.)/, '.') # remove md5 hash
-      value    = f.sub('public', '')
-      res[key] = value
-    end
-    res
+    WebpackIntergration::Store.fuzzy_file_for(filename)
   end
 
   # should be called in development mode in after-request filter
   def self.reset_assets_manifest!
-    @assets_manifest = nil
-    @assets_keys     = nil
+    WebpackIntergration::Store.reset
   end
 end
