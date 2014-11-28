@@ -1,6 +1,6 @@
 module WebpackIntegration
   class Configuration
-    attr_reader :folder_in_public, :reset_on_each_request, :public_folder
+    attr_accessor :folder_in_public, :reset_on_each_request, :public_folder
     def initialize
       @folder_in_public      = 'webpack'
       @public_folder         = 'public'

@@ -22,7 +22,7 @@ module WebpackIntegration
     end
 
     def self.assets_manifest
-      @assets_manifest ||= WebpackIntergration::Assets.generate_assets_manifest
+      @assets_manifest ||= WebpackIntegration::Assets.generate_assets_manifest
     end
 
     def self.reset

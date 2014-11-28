@@ -13,15 +13,19 @@ module WebpackIntegration
     end
 
     def self.file_matcher
-      File.join(Configuration.full_path, '**/**/**/**')
+      File.join(configuration.full_path, '**/**/**/**')
     end
 
-    def webpack_folder
-      Configuration.full_path
+    def self.webpack_folder
+      configuration.full_path
     end
 
-    def public_folder
-      Configuration.public_folder
+    def self.public_folder
+      configuration.public_folder
+    end
+
+    def self.configuration
+      WebpackIntegration.configuration
     end
   end
 end
