@@ -1,5 +1,8 @@
 # WebpackIntegration
 
+[![Build Status](https://travis-ci.org/mindreframer/webpack_integration.svg?branch=master)](http://travis-ci.org/mindreframer/webpack_integration)
+[![codecov.io](https://codecov.io/github/mindreframer/webpack_integration/coverage.svg?branch=master)](https://codecov.io/github/mindreframer/webpack_integration?branch=master)
+
 A small gem for dead simple integration with any static assets compiler.
 It allows you to reference any file in a output folder for a compiler (webpack / gulp / grunt) that may have a hash digest in the file name by simple non-changeable filename part.
 
