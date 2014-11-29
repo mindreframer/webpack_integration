@@ -7,36 +7,17 @@ module TestRailsApp
 
     routes.draw do
       get  '/view_test' => 'test_rails_app/view_test#index'
-      get  '/login'     => 'test_rails_app/sessions#new'
-      post '/login'     => 'test_rails_app/sessions#create'
-      get  '/profile'   => 'test_rails_app/profiles#show'
-    end
-  end
-
-  class SessionsController < ActionController::Base
-    def new
-      render :text => "Please log in"
-    end
-
-    def create
-      session[:user_email] = params[:user_email]
-      redirect_to '/profile'
     end
   end
 
   class ViewTestController < ActionController::Base
+    before_filter :set_view_path
     def index
-      render :text => "works"
+      # renders a partial with helpers
     end
-  end
 
-  class ProfilesController < ActionController::Base
-    def show
-      if user_email = session[:user_email]
-        render :text => "Welcome, #{user_email}!"
-      else
-        redirect_to '/login'
-      end
+    def set_view_path
+      self.view_paths.push(File.dirname(__FILE__))
     end
   end
 end
