@@ -17,6 +17,7 @@ describe 'WebpackIntegration::Railtie' do
 
     it "works" do
       get '/view_test'
+      assert last_response.ok?
     end
 
   end
