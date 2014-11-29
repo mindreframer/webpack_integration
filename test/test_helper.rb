@@ -13,7 +13,9 @@ end
 
 Bundler.setup
 
+require './test/apps/test_rails_app'
 require 'webpack_integration'
+require 'rack/test'
 require 'maxitest'
 require 'mocha/mini_test'
 require 'maxitest/autorun'
