@@ -15,7 +15,7 @@ Example:
     public/webpack/invoices_view_styles-bundle-0ebe2ec.js
 
 
-Refer to files in Rails views by:
+Refer to files in Rails views by `webpack_file`:
 
     <%= javascript_include_tag  webpack_file('reports_view_bundle') %>
     <%= javascript_include_tag  webpack_file('reports_view_styles-bundle') %>
@@ -44,7 +44,6 @@ Or anywhere in code by:
     WebpackIntegration.configure do |config|
       config.public_folder         = 'public'  # default 'public'
       config.folder_in_public      = 'webpack' # default 'webpack'
-      config.reset_on_each_request = Rails.env.development?  # default false
     end
 
 
