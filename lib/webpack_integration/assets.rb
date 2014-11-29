@@ -17,7 +17,7 @@ module WebpackIntegration
     end
 
     def self.webpack_folder
-      configuration.full_path
+      @webpack_folder ||= File.join(configuration.full_path, '/')
     end
 
     def self.public_folder
