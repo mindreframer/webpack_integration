@@ -1,10 +1,9 @@
 module WebpackIntegration
   class Configuration
-    attr_accessor :folder_in_public, :reset_on_each_request, :public_folder
+    attr_accessor :folder_in_public, :public_folder
     def initialize
-      @folder_in_public      = 'webpack'
-      @public_folder         = 'public'
-      @reset_on_each_request = false
+      @folder_in_public = 'webpack'
+      @public_folder    = 'public'
     end
 
     def full_path
