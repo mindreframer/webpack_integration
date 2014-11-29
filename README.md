@@ -6,7 +6,7 @@
 A small gem for dead simple integration with any static assets compiler.
 It allows you to reference any file in a output folder for a compiler (webpack / gulp / grunt) that may have a hash digest in the file name by simple non-changeable filename part.
 
-Example:
+Example public-folder file listing:
 
     public/webpack/reports_view-bundle-ab530a1.js
     public/webpack/reports_view_styles-bundle-b94f982.js
@@ -15,10 +15,15 @@ Example:
     public/webpack/invoices_view_styles-bundle-0ebe2ec.js
 
 
-Refer to files in Rails views by `webpack_file`:
+Refer to files in Rails views by `webpack_file` or `webpack_fuzzy_file`:
 
-    <%= javascript_include_tag  webpack_file('reports_view_bundle') %>
-    <%= javascript_include_tag  webpack_file('reports_view_styles-bundle') %>
+    <!-- exact matches, preferred way if you care about performance -->
+    <%= javascript_include_tag  webpack_file('reports_view_bundle.js') %>
+    <%= javascript_include_tag  webpack_file('reports_view_styles-bundle.js') %>
+
+    <!-- matches reports_view_styles-bundle-b94f982.js, basically a regex match -->
+    <!-- for sloppy coding in development -->
+    <%= javascript_include_tag  webpack_fuzzy_file('reports_view_styles') %>
 
 
 Or anywhere in code by:
