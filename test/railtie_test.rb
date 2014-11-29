@@ -18,6 +18,7 @@ describe 'WebpackIntegration::Railtie' do
     it "works" do
       get '/view_test'
       assert last_response.ok?
+      last_response.body.must_equal "/webpack/common-2e7d2c0.js\n/webpack/common-2e7d2c0.js"
     end
 
   end
