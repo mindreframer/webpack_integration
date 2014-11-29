@@ -2,8 +2,10 @@ require "webpack_integration/version"
 require "webpack_integration/configuration"
 require "webpack_integration/assets"
 require "webpack_integration/store"
-require "webpack_integration/railtie" if defined?(Rails)
-
+if defined?(Rails)
+  require "webpack_integration/railtie"
+  require "webpack_integration/view_helper"
+end
 
 module WebpackIntegration
   def self.configure
