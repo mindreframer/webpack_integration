@@ -37,11 +37,11 @@ Or anywhere in code by:
 
 ## Installation
 
-      # add to your application's Gemfile:
-      gem 'webpack_integration'
+    # add to your application's Gemfile:
+    gem 'webpack_integration'
 
-      # run
-      $ bundle
+    # run
+    $ bundle
 
 ## Usage
 
