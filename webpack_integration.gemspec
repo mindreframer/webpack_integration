@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = WebpackIntegration::VERSION
   spec.authors       = ["Roman Heinrich"]
   spec.email         = ["roman.heinrich@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{A small gem to integrated digested static files with Ruby / Rails apps}
+  spec.description   = spec.summary
+  spec.homepage      = "https://github.com/mindreframer/webpack_integration"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
