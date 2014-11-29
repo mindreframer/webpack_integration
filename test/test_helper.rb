@@ -19,3 +19,5 @@ require 'rack/test'
 require 'maxitest'
 require 'mocha/mini_test'
 require 'maxitest/autorun'
+
+require 'pry'
